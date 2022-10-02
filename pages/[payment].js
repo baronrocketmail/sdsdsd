@@ -4,7 +4,7 @@ import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, getDocs } from "firebase/firestore"
+import {getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, getDocs, query, where} from "firebase/firestore"
 
 import CheckoutForm from "../components/CheckoutForm";
 import Nav from "./components/Nav";
@@ -24,8 +24,9 @@ export async function getStaticProps(context) {
     const app = initializeApp(firebaseConfig);
     const firestore = getFirestore()
     const colRef = collection(firestore,'units/10144-boca-entrada/payments')
+    const q = query(colRef, where("status", "==", "unpaid"))
     let unpaid = [];
-    await getDocs(colRef).then(snapshot => {
+    await getDocs(q).then(snapshot => {
         snapshot.docs.forEach(doc => {
             unpaid.push({...doc.data(), id: doc.id});
         })
