@@ -6,11 +6,14 @@
 }
 
 :root{
-  /*--background-color: #FFFFF;*/
-  --background-color: black;
+  --background-color: white;
+  --text-color:orange;
+  --font:"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+.dark{
+  --background-color: white;
   --text-color:white;
   --font: canto;
-  --font:"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
 html{
