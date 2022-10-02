@@ -22,7 +22,8 @@ export async function getStaticProps() {
     })
   })
   return {
-    props: { unpaid }
+    props: { unpaid },
+    revalidate: 1
   }
 }
 
