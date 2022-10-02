@@ -1,7 +1,20 @@
+@font-face {
+  font-family: "canto";
+  src: url(../pages/Canto-SemiBold.ttf) format("truetype");
+  font-weight: 400;
+  font-display: block;
+}
 
+:root{
+  /*--background-color: #FFFFF;*/
+  --background-color: black;
+  --text-color:white;
+  --font: canto;
+  --font:"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
 
 html{
-  font-family: canto;
+  font-family: var(--font);
   text-align: center;
   font-size:6vw;
   padding:0;
@@ -11,22 +24,25 @@ html{
   font-weight:400;
   position:relative;
   text-rendering:geometricPrecision;
-  background-color: white;
-  color: black;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+svg{
+  fill: var(--text-color);
+}
+
+sub{
+  font-size: xx-small;
 }
 a {
   text-decoration: none;
-  color:black;
-}
-a:visited {
-  color:black;
+  color:var(--text-color);
 }
 table {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid;
-
 }
 td{
   text-align: left;
@@ -34,10 +50,45 @@ td{
   padding:0.1em;
 
 }
-
 tr{
   border: 1px solid
 }
+form{
+  padding: 25px;
+}
+
+button {
+  background: black;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  border-radius: 4px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+}
+
+
+
+
+/*#payment-message {*/
+/*    color: rgb(105, 115, 134);*/
+/*    font-size: 16px;*/
+/*    line-height: 20px;*/
+/*    padding-top: 12px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*#payment-element {*/
+/*    margin-bottom: 24px;*/
+/*}*/
+
+/* Buttons and links */
 
 /*html,*/
 /*body {*/
@@ -93,38 +144,7 @@ tr{
 /*    justify-content: center;*/
 /*}*/
 
-form{
-  padding: 25px;
-}
 
-/*#payment-message {*/
-/*    color: rgb(105, 115, 134);*/
-/*    font-size: 16px;*/
-/*    line-height: 20px;*/
-/*    padding-top: 12px;*/
-/*    text-align: center;*/
-/*}*/
-
-/*#payment-element {*/
-/*    margin-bottom: 24px;*/
-/*}*/
-
-/* Buttons and links */
-button {
-  background: black;
-  font-family: Arial, sans-serif;
-  color: #ffffff;
-  border-radius: 4px;
-  border: 0;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  display: block;
-  transition: all 0.2s ease;
-  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-  width: 100%;
-}
 
 /*button:hover {*/
 /*    filter: contrast(115%);*/

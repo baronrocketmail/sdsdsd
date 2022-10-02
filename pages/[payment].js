@@ -73,7 +73,7 @@ export default function Payment(props) {
         appearance,
     };
     // create 2D array, push address and autopay
-    let elements = [["<-----", "/", "title"], [" ","/autopay","autopay"]]
+    let elements = [["<-------", "/", "title"], [" ","/autopay","autopay"]]
     // push unpaid payments
     for (let i in props.unpaid) {
         if (props.unpaid[i].url == props.paymentURL) {
