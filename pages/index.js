@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, getDocs , query, where} from "firebase/firestore"
 
-export async function getStaticProps() {
+async function getUnpaid(){
   const firebaseConfig = {
     apiKey: "AIzaSyDPGmgTxlAsVkakZrGbs8NTF2r0RcWu_ig",
     authDomain: "luminous-lambda-364207.firebaseapp.com",
@@ -21,13 +21,10 @@ export async function getStaticProps() {
     snapshot.docs.forEach(doc => {unpaid.push({...doc.data(), id: doc.id});
     })
   })
-  return {
-    props: { unpaid },
-    revalidate: 1
-  }
+  return unpaid
 }
 
-export default function Home(props) {
+function getElements(props){
   // create 2D array, push address and autopay
   let elements = [["10144 boca entrada", "/", "title"], ["autopay","/autopay","autopay"]]
   // push unpaid payments
@@ -36,10 +33,22 @@ export default function Home(props) {
   }
   // push log
   elements.push(["...", "/log", "log"])
+  return elements
+}
 
+export async function getStaticProps() {
+  let unpaid = await getUnpaid()
+  return {
+    props: { unpaid },
+    revalidate: 1
+  }
+}
+
+export default function Home(props) {
+  let elements = getElements(props)
   return (
       <div>
-        <Nav elements = {elements}/>
+        <Nav elements={elements}/>
       </div>
   )
 }
